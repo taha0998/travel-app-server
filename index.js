@@ -1,4 +1,4 @@
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const { default: axios } = require("axios");
 const express = require("express");
 const app = express();
@@ -111,4 +111,8 @@ app.delete("/delete/:postId", async (req, res) => {
   }
 });
 
-app.listen(PORT, console.log("Server is running on PORT " + PORT));
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+  console.log(`🚀 Server URL: http://localhost:${PORT}`);
+});
+
