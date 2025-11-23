@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const Vercel_DOMAIN = 'https://react-travel-8vqfsecjp-taha0998s-projects.vercel.app/'; // REPLACE WITH YOUR ACTUAL VERCEL URL
+const Vercel_DOMAIN = 'https://react-travel-8vqfsecjp-taha0998s-projects.vercel.app'; // REPLACE WITH YOUR ACTUAL VERCEL URL
 
 const corsOptions = {
   origin: [
@@ -132,5 +132,6 @@ app.listen(PORT, () => {
   console.log(`✅ Server is running on port ${PORT}`);
   console.log(`🚀 Server URL: http://localhost:${PORT}`);
 });
+
 
 
