@@ -8,6 +8,23 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+const Vercel_DOMAIN = 'https://react-travel-8vqfsecjp-taha0998s-projects.vercel.app/'; // REPLACE WITH YOUR ACTUAL VERCEL URL
+
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',    // Local development
+    Vercel_DOMAIN,              // Your Vercel frontend
+    `www.${Vercel_DOMAIN.replace('https://', '')}` // WWW version
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
+
+
 app.get("/", (req, res) => {
   res.status(200).json("Welcome to Traventure App");
 });
@@ -115,4 +132,5 @@ app.listen(PORT, () => {
   console.log(`✅ Server is running on port ${PORT}`);
   console.log(`🚀 Server URL: http://localhost:${PORT}`);
 });
+
 
